@@ -10,7 +10,7 @@ before_script:
 
 script:
   - phpunit --coverage-clover=coverage.xml
-  - php coverage-checker.php coverage.xml 80
+  - php coverage-checker.php coverage.xml 60
 
 after_success:
     - bash <(curl -s https://codecov.io/bash)
