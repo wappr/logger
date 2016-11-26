@@ -91,8 +91,13 @@ class Logger extends AbstractLogger
             // Create a new LogFormat instance to format the log entry.
             $message = LogFormat::create($level, $message, $context);
 
+            // Get the contents of the file before writing to it. This is so it can be appended.
+            $contents = $this->filesystem->read($filename);
+
+            $contents .= $message;
+
             // Write the log message from the Log Format instance to the Log Format file name instance.
-            $this->filesystem->put($filename, $message."\n");
+            $this->filesystem->put($filename, $contents."\n");
         }
     }
 
