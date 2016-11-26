@@ -29,10 +29,9 @@ class LogFormat
         // Assemble the message. Ex. [debug] [2016-11-25 15:37:36.9468] hello
         $this->message = '['.$level.'] ['.date('Y-m-d G:i:s').'.'.$ms.'] '.$message;
 
-        // If an array was passed as well, serialize it and add it's content.
-        // @TODO: find a cleaner way to do this
+        // If an array was passed as well, export it to a string
         if (count($context) > 0) {
-            $this->message .= ' '.serialize($context);
+            $this->message .= "\n".var_export($context, true);
         }
     }
 

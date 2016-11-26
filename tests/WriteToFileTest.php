@@ -73,17 +73,12 @@ class WriteToFileTest extends PHPUnit_Framework_TestCase
 
         $logs = $filesystem->read(date('Y-m-d').'.log'); // read the logs into a string
 
-        $log = explode("\n", $logs); // explode the string by newline into an array
+        $containsArray = false;
 
-        $numberOfLines = count($log); // get the number of indexes in the array
-        unset($log[$numberOfLines - 1]); // take off the last line / last index of the array
-
-        $containHorse = false;
-
-        if (strpos(end($log), 'horse') !== false) {
-            $containHorse = true;
+        if (strpos($logs, 'array') !== false) {
+            $containsArray = true;
         }
 
-        $this->assertTrue($containHorse);
+        $this->assertTrue($containsArray);
     }
 }
