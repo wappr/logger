@@ -11,7 +11,7 @@ before_script:
 script:
   - phpunit
   - phpunit --coverage-clover=coverage.xml
-  - php coverage-checker.php clover.xml 90
+  - php coverage-checker.php coverage.xml 90
 
 after_success:
     - bash <(curl -s https://codecov.io/bash)
