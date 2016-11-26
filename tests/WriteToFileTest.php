@@ -75,7 +75,7 @@ class WriteToFileTest extends PHPUnit_Framework_TestCase
 
         $containsArray = false;
 
-        if (strpos($logs, 'array') !== false) {
+        if (strpos($logs, 'Array') !== false) {
             $containsArray = true;
         }
 
