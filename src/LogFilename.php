@@ -13,7 +13,7 @@ class LogFilename
      * @param $filenameFormat       string Accepts the same parameters as PHP's date function
      * @param $filenameExtension    string Accepts a file extension such as log
      *
-     * @return string The filename for the log file that will be written.
+     * @return string The filename for the log file that will be written
      */
     public static function create($filenameFormat, $filenameExtension)
     {

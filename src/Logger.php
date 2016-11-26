@@ -11,7 +11,7 @@ use Psr\Log\LogLevel;
  *
  * @author Levi Durfee <levi.durfee@gmail.com>
  *
- * @version 1.1.1
+ * @version 1.2.0
  */
 class Logger extends AbstractLogger
 {
