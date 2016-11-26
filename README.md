@@ -1,6 +1,7 @@
 # Logger
 
 [![Build Status](https://travis-ci.org/wappr/logger.svg?branch=master)](https://travis-ci.org/wappr/logger)
+[![codecov](https://codecov.io/gh/wappr/logger/branch/master/graph/badge.svg)](https://codecov.io/gh/wappr/logger)
 
 This logger implements PSR-3, so you can easily replace your current logger with this one.
 You can easily keep your log files anywhere since it uses [Flysystem](https://flysystem.thephpleague.com/).
