@@ -10,4 +10,6 @@ before_script:
   - composer self-update
   - composer install --prefer-source --no-interaction --dev
 
-script: phpunit
+script:
+  - phpunit
+  - php coverage-checker.php clover.xml 90
