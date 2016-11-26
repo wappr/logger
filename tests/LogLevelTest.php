@@ -8,7 +8,7 @@ class LogLevelTest extends PHPUnit_Framework_TestCase
 {
     public function testLogLevels()
     {
-        $adapter = new Local(dirname(__DIR__).'/storage/logs/', FILE_APPEND);
+        $adapter = new Local(dirname(__DIR__).'/storage/logs/');
         $filesystem = new Filesystem($adapter);
 
         $logger = new Logger($filesystem, Psr\Log\LogLevel::DEBUG);

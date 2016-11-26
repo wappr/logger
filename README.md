@@ -42,7 +42,7 @@ use League\Flysystem\Adapter\Local;
 use Psr\Log\LogLevel;
 use wappr\Logger;
 
-$adapter = new Local(__DIR__.'/storage/logs/', FILE_APPEND);
+$adapter = new Local(__DIR__.'/storage/logs/');
 $filesystem = new Filesystem($adapter);
 
 $logger = new Logger($filesystem, LogLevel::DEBUG);
@@ -59,7 +59,7 @@ use League\Flysystem\Adapter\Local;
 use Psr\Log\LogLevel;
 use wappr\Logger;
 
-$adapter = new Local(__DIR__.'/storage/logs/', FILE_APPEND);
+$adapter = new Local(__DIR__.'/storage/logs/');
 $filesystem = new Filesystem($adapter);
 
 $logger = new Logger($filesystem, LogLevel::DEBUG);

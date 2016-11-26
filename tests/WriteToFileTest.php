@@ -8,7 +8,7 @@ class WriteToFileTest extends PHPUnit_Framework_TestCase
 {
     public function testWritingToFile()
     {
-        $adapter = new Local(dirname(__DIR__).'/storage/logs/', FILE_APPEND);
+        $adapter = new Local(dirname(__DIR__).'/storage/logs/');
         $filesystem = new Filesystem($adapter);
         $logger = new Logger($filesystem, Psr\Log\LogLevel::INFO);
 
@@ -33,7 +33,7 @@ class WriteToFileTest extends PHPUnit_Framework_TestCase
 
     public function testNotWritingToFile()
     {
-        $adapter = new Local(dirname(__DIR__).'/storage/logs/', FILE_APPEND);
+        $adapter = new Local(dirname(__DIR__).'/storage/logs/');
         $filesystem = new Filesystem($adapter);
         $logger = new Logger($filesystem, Psr\Log\LogLevel::INFO);
 
@@ -58,7 +58,7 @@ class WriteToFileTest extends PHPUnit_Framework_TestCase
 
     public function testWritingArrayToFile()
     {
-        $adapter = new Local(dirname(__DIR__).'/storage/logs/', FILE_APPEND);
+        $adapter = new Local(dirname(__DIR__).'/storage/logs/');
         $filesystem = new Filesystem($adapter);
         $logger = new Logger($filesystem, Psr\Log\LogLevel::INFO);
 

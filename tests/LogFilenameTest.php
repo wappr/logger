@@ -16,7 +16,7 @@ class LogFilenameTest extends PHPUnit_Framework_TestCase
 
     public function testSettingPropertiesInLogger()
     {
-        $adapter = new Local(dirname(__DIR__).'/storage/logs/', FILE_APPEND);
+        $adapter = new Local(dirname(__DIR__).'/storage/logs/');
         $filesystem = new Filesystem($adapter);
         $logger = new Logger($filesystem, Psr\Log\LogLevel::INFO);
         $logger->setFilenameFormat('Y-m-d');
