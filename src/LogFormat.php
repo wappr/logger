@@ -2,10 +2,12 @@
 
 namespace wappr;
 
+use wappr\Contracts\LogFormatInterface;
+
 /**
  * Class LogFormat.
  */
-class LogFormat
+class LogFormat implements LogFormatInterface
 {
     /**
      * Create the log format that will be used when writing to the file. It is
@@ -17,7 +19,7 @@ class LogFormat
      *
      * @return string Return the string with the formatted log message
      */
-    public static function create($level, $message, array $context = [])
+    public function create($level, $message, array $context = [])
     {
         // Get milliseconds
         $ms = explode('.', microtime(true))[1];
@@ -43,7 +45,7 @@ class LogFormat
      *
      * @return string The message after it has been interpolated
      */
-    protected static function interpolate($message, array $context = array())
+    protected function interpolate($message, array $context = array())
     {
         // build a replacement array with braces around the context keys
         $replace = array();

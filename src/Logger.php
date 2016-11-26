@@ -5,6 +5,7 @@ namespace wappr;
 use League\Flysystem\FilesystemInterface;
 use Psr\Log\AbstractLogger;
 use Psr\Log\LogLevel;
+use wappr\Contracts\LogFormatInterface;
 
 /**
  * Class Logger.
@@ -61,6 +62,11 @@ class Logger extends AbstractLogger
     private $filenameExtension = 'log';
 
     /**
+     * @var LogFormatInterface
+     */
+    private $logFormat;
+
+    /**
      * Logger constructor.
      *
      * @param FilesystemInterface $filesystem Flysystem filesystem abstraction
@@ -70,6 +76,7 @@ class Logger extends AbstractLogger
     {
         $this->filesystem = $filesystem;
         $this->threshold = $threshold;
+        $this->logFormat = new LogFormat;
     }
 
     /**
@@ -89,7 +96,7 @@ class Logger extends AbstractLogger
             $filename = LogFilename::create($this->filenameFormat, $this->filenameExtension);
 
             // Create a new LogFormat instance to format the log entry.
-            $message = LogFormat::create($level, $message, $context);
+            $message = $this->logFormat->create($level, $message, $context);
 
             $contents = '';
 
@@ -126,5 +133,15 @@ class Logger extends AbstractLogger
     public function setFilenameExtension($filenameExtension)
     {
         $this->filenameExtension = $filenameExtension;
+    }
+
+    /**
+     * Optionally create your own LogFormat class and set it to be used instead.
+     *
+     * @param LogFormatInterface $logFormat
+     */
+    public function setLogFormat(LogFormatInterface $logFormat)
+    {
+        $this->logFormat = $logFormat;
     }
 }
