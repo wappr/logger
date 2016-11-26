@@ -32,7 +32,7 @@ composer require wappr/logger
 
 ## Example Usage
 
-## Basic Usage
+### Basic Usage
 
 ```php
 <?php
@@ -49,7 +49,7 @@ $logger = new Logger($filesystem, LogLevel::DEBUG);
 $logger->info('hello');
 ```
 
-## Changing Options
+### Changing Options
 
 ```php
 <?php
