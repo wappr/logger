@@ -32,7 +32,7 @@ class LogFormat implements LogFormatInterface
             $message .= "\n".print_r($context, true);
         }
 
-        return self::interpolate($message);
+        return $this->interpolate($message);
     }
 
     /**
