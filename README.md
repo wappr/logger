@@ -11,7 +11,7 @@ You can effortlessly keep your log files anywhere since it uses [Flysystem](http
 ## Installation
 
 The best way to install this package is via composer. You can do it from the command line or 
-add `"wappr/logger": "^1.0"` to the required section of your `composer.json`. You can find 
+add `"wappr/logger": "^1.1"` to the required section of your `composer.json`. You can find 
 examples of both ways below.
 
 ### Composer Command Line
@@ -25,7 +25,7 @@ composer require wappr/logger
 ```json
 {
   "require": {
-    "wappr/logger": "^1.0"
+    "wappr/logger": "^1.1"
   }
 }
 ```
