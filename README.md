@@ -69,6 +69,34 @@ $logger->setFilenameExtension('txt'); // change the extension to txt
 $logger->info('hello');
 ```
 
+### Using S3 for log storage
+
+```php
+<?php
+include('vendor/autoload.php');
+use Aws\S3\S3Client;
+use League\Flysystem\AwsS3v3\AwsS3Adapter;
+use League\Flysystem\Filesystem;
+use Psr\Log\LogLevel;
+use wappr\Logger;
+
+$client = S3Client::factory([
+    'credentials' => [
+        'key'    => '',
+        'secret' => '',
+    ],
+    'region' => 'us-east-1',
+    'version' => 'latest',
+]);
+
+$adapter = new AwsS3Adapter($client, 'bucket-name');
+
+$filesystem = new Filesystem($adapter);
+
+$logger = new Logger($filesystem, LogLevel::DEBUG);
+$logger->info('hello');
+```
+
 ## License
 
 Copyright (c) 2016 wappr
