@@ -5,14 +5,14 @@
 [![Build Status](https://travis-ci.org/wappr/logger.svg?branch=master)](https://travis-ci.org/wappr/logger) [![codecov](https://codecov.io/gh/wappr/logger/branch/master/graph/badge.svg)](https://codecov.io/gh/wappr/logger) [![latest stable version](https://poser.pugx.org/wappr/logger/v/stable.svg)](https://packagist.org/packages/wappr/logger) [![license mit](https://poser.pugx.org/wappr/logger/license.svg)](https://packagist.org/packages/wappr/logger)
 
 This logger implements PSR-3, so you can easily replace your current logger with this one.
-You can easily keep your log files anywhere since it uses [Flysystem](https://flysystem.thephpleague.com/).
+You can effortlessly keep your log files anywhere since it uses [Flysystem](https://flysystem.thephpleague.com/).
 
 
 ## Installation
 
 The best way to install this package is via composer. You can do it from the command line or 
 add `"wappr/logger": "^1.0"` to the required section of your `composer.json`. You can find 
-examples for both ways below.
+examples of both ways below.
 
 ### Composer Command Line
 
