@@ -1,7 +1,7 @@
 {
   "name": "wappr/logger",
   "description": "A PSR-3 logger that uses Flysystem.",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "license": "MIT",
   "keywords": ["psr", "psr-3", "logger", "wappr", "flysystem", "s3", "aws", "azure", "ftp", "gridfs"],
   "autoload": {
