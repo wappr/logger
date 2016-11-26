@@ -5,6 +5,7 @@ namespace wappr;
 use League\Flysystem\FilesystemInterface;
 use Psr\Log\AbstractLogger;
 use Psr\Log\LogLevel;
+use wappr\Contracts\LogFilenameInterface;
 use wappr\Contracts\LogFormatInterface;
 
 /**
@@ -67,6 +68,11 @@ class Logger extends AbstractLogger
     private $logFormat;
 
     /**
+     * @var LogFilenameInterface
+     */
+    private $logFilename;
+
+    /**
      * Logger constructor.
      *
      * @param FilesystemInterface $filesystem Flysystem filesystem abstraction
@@ -77,6 +83,7 @@ class Logger extends AbstractLogger
         $this->filesystem = $filesystem;
         $this->threshold = $threshold;
         $this->logFormat = new LogFormat;
+        $this->logFilename = new LogFilename;
     }
 
     /**
@@ -93,7 +100,7 @@ class Logger extends AbstractLogger
         // If the level is greater than or equal to the threshold, then we should log it.
         if ($this->levels[$level] >= $this->levels[$this->threshold]) {
             // Call the LogFilename static function create to get the filename.
-            $filename = LogFilename::create($this->filenameFormat, $this->filenameExtension);
+            $filename = $this->logFilename->create($this->filenameFormat, $this->filenameExtension);
 
             // Create a new LogFormat instance to format the log entry.
             $message = $this->logFormat->create($level, $message, $context);
@@ -143,5 +150,15 @@ class Logger extends AbstractLogger
     public function setLogFormat(LogFormatInterface $logFormat)
     {
         $this->logFormat = $logFormat;
+    }
+
+    /**
+     * Optionally create your own LogFilename class and use this method to use it.
+     *
+     * @param LogFilenameInterface $logFilename
+     */
+    public function setLogFilename(LogFilenameInterface $logFilename)
+    {
+        $this->logFilename = $logFilename;
     }
 }

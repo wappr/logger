@@ -2,10 +2,12 @@
 
 namespace wappr;
 
+use wappr\Contracts\LogFilenameInterface;
+
 /**
  * Class LogFilename.
  */
-class LogFilename
+class LogFilename implements LogFilenameInterface
 {
     /**
      * Create the log filename.
@@ -15,7 +17,7 @@ class LogFilename
      *
      * @return string The filename for the log file that will be written
      */
-    public static function create($filenameFormat, $filenameExtension)
+    public function create($filenameFormat, $filenameExtension)
     {
         return date($filenameFormat).'.'.$filenameExtension;
     }
