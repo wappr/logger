@@ -8,13 +8,6 @@ namespace wappr;
 class LogFormat
 {
     /**
-     * The filename is the current date with the extension '.log'.
-     *
-     * @var string
-     */
-    protected $filename;
-
-    /**
      * The message that is being written to the log file.
      *
      * @var string
@@ -30,9 +23,6 @@ class LogFormat
      */
     public function __construct($level, $message, array $context = [])
     {
-        // Set the filename to the current date. Ex. 2016-11-25.log
-        $this->filename = date('Y-m-d').'.log';
-
         // Get milliseconds
         $ms = explode('.', microtime(true))[1];
 
@@ -44,14 +34,6 @@ class LogFormat
         if (count($context) > 0) {
             $this->message .= ' '.serialize($context);
         }
-    }
-
-    /**
-     * @return string
-     */
-    public function filename()
-    {
-        return $this->filename;
     }
 
     /**

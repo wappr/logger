@@ -46,6 +46,10 @@ class Logger extends AbstractLogger
         'debug' => 0,
     ];
 
+    private $filenameFormat = 'Y-m-d';
+
+    private $filenameExtension = 'log';
+
     /**
      * Logger constructor.
      *
@@ -71,11 +75,36 @@ class Logger extends AbstractLogger
     {
         // If the level is greater than or equal to the threshold, then we should log it.
         if ($this->levels[$level] >= $this->levels[$this->threshold]) {
+            // Call the LogFilename static function create to get the filename.
+            $filename = LogFilename::create($this->filenameFormat, $this->filenameExtension);
+
             // Create a new LogFormat instance to format the log entry.
             $logFormat = new LogFormat($level, $message, $context);
 
             // Write the log message from the Log Format instance to the Log Format file name instance.
-            $this->filesystem->put($logFormat->filename(), $logFormat->message()."\n");
+            $this->filesystem->put($filename, $logFormat->message()."\n");
         }
+    }
+
+    /**
+     * Set the log filename format using PHP's date parameters.
+     *
+     * @link https://secure.php.net/manual/en/function.date.php
+     *
+     * @param string $filenameFormat
+     */
+    public function setFilenameFormat($filenameFormat)
+    {
+        $this->filenameFormat = $filenameFormat;
+    }
+
+    /**
+     * Set the filename extension. Ex: 'log' will be '.log'
+     *
+     * @param string $filenameExtension
+     */
+    public function setFilenameExtension($filenameExtension)
+    {
+        $this->filenameExtension = $filenameExtension;
     }
 }

@@ -32,9 +32,10 @@ composer require wappr/logger
 
 ## Example Usage
 
+## Basic Usage
+
 ```php
 <?php
-
 include 'vendor/autoload.php';
 use League\Flysystem\Filesystem;
 use League\Flysystem\Adapter\Local;
@@ -45,6 +46,26 @@ $adapter = new Local(__DIR__.'/storage/logs/', FILE_APPEND);
 $filesystem = new Filesystem($adapter);
 
 $logger = new Logger($filesystem, LogLevel::DEBUG);
+$logger->info('hello');
+```
+
+## Changing Options
+
+```php
+<?php
+include 'vendor/autoload.php';
+use League\Flysystem\Filesystem;
+use League\Flysystem\Adapter\Local;
+use Psr\Log\LogLevel;
+use wappr\Logger;
+
+$adapter = new Local(__DIR__.'/storage/logs/', FILE_APPEND);
+$filesystem = new Filesystem($adapter);
+
+$logger = new Logger($filesystem, LogLevel::DEBUG);
+$logger->setFilenameFormat('m-d-Y'); // change the format to month day year
+$logger->setFilenameExtension('txt'); // change the extension to txt
+        
 $logger->info('hello');
 ```
 
