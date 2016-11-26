@@ -31,7 +31,7 @@ class LogFormat
 
         // If an array was passed as well, export it to a string
         if (count($context) > 0) {
-            $this->message .= "\n".var_export($context, true);
+            $this->message .= "\n".print_r($context, true);
         }
     }
 

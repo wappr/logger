@@ -46,8 +46,18 @@ class Logger extends AbstractLogger
         'debug' => 0,
     ];
 
+    /**
+     * Date format of the log filename.
+     *
+     * @var string
+     */
     private $filenameFormat = 'Y-m-d';
 
+    /**
+     * Extension of the log file.
+     *
+     * @var string
+     */
     private $filenameExtension = 'log';
 
     /**
@@ -99,7 +109,7 @@ class Logger extends AbstractLogger
     }
 
     /**
-     * Set the filename extension. Ex: 'log' will be '.log'
+     * Set the filename extension. Ex: 'log' will be '.log'.
      *
      * @param string $filenameExtension
      */
