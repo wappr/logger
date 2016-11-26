@@ -28,7 +28,7 @@ class LogFormat
      * @param string $message
      * @param array  $context
      */
-    public function __construct(string $level, string $message, array $context = [])
+    public function __construct($level, $message, array $context = [])
     {
         // Set the filename to the current date. Ex. 2016-11-25.log
         $this->filename = date('Y-m-d').'.log';

@@ -10,6 +10,7 @@ use Psr\Log\LogLevel;
  * Class Logger.
  *
  * @author Levi Durfee <levi.durfee@gmail.com>
+ *
  * @version 0.1.0
  */
 class Logger extends AbstractLogger
@@ -51,7 +52,7 @@ class Logger extends AbstractLogger
      * @param FilesystemInterface $filesystem Flysystem filesystem abstraction
      * @param string              $threshold  Lowest level of logging to write
      */
-    public function __construct(FilesystemInterface $filesystem, string $threshold)
+    public function __construct(FilesystemInterface $filesystem, $threshold)
     {
         $this->filesystem = $filesystem;
         $this->threshold = $threshold;
