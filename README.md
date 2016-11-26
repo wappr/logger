@@ -1,4 +1,4 @@
-[![wappr logo](wappr-logo.png)](https://wappr.co/)
+<p align="center"><a href="https://wappr.co/" target="_blank"><img width="150"src="https://raw.githubusercontent.com/wappr/logger/master/wappr-logo.png"></a></p>
 
 # Logger
 
