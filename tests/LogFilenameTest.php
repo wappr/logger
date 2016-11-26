@@ -9,8 +9,9 @@ class LogFilenameTest extends PHPUnit_Framework_TestCase
 {
     public function testCreateFilename()
     {
+        $logFile = new LogFilename;
         $expectedResult = date('Y-m-d').'.log';
-        $result = LogFilename::create('Y-m-d', 'log');
+        $result = $logFile->create('Y-m-d', 'log');
         $this->assertEquals($expectedResult, $result);
     }
 
