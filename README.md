@@ -94,8 +94,14 @@ $adapter = new AwsS3Adapter($client, 'bucket-name');
 $filesystem = new Filesystem($adapter);
 
 $logger = new Logger($filesystem, LogLevel::DEBUG);
+$logger->setFilenameFormat('/Ymd/m-d-Y_Gis');
 $logger->info('hello');
 ```
+
+In the above example, it sets the filename to include a directory with the year, month, and day. That way
+all newly written files will go in that directory. This is the only way I could think of to overcome the
+limitation of S3 not having file locking. Since it is object storage, it does not matter how many directories
+or files we have in the bucket.
 
 ## License
 
