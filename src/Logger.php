@@ -126,6 +126,8 @@ class Logger extends AbstractLogger
      * @link https://secure.php.net/manual/en/function.date.php
      *
      * @param string $filenameFormat
+     *
+     * @deprecated 1.2.0 This method is no longer used since there is now a LogFilenameInterface
      */
     public function setFilenameFormat($filenameFormat)
     {
@@ -136,6 +138,8 @@ class Logger extends AbstractLogger
      * Set the filename extension. Ex: 'log' will be '.log'.
      *
      * @param string $filenameExtension
+     *
+     * @deprecated 1.2.0 This method is no longer used since there is now a LogFilenameInterface
      */
     public function setFilenameExtension($filenameExtension)
     {
